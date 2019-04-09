@@ -4,10 +4,11 @@ var session = require('express-session');
 var bodyParser = require('body-parser');
 var path = require('path');
 var crypto = require('crypto');
-
+var http = require('http')
 var app = express();
 
 const port = 3000;
+
 
 var connection = mysql.createConnection({
     host: 'dbinstanceaws.cr1itmhwscoi.us-east-2.rds.amazonaws.com',
@@ -17,6 +18,7 @@ var connection = mysql.createConnection({
     database: 'dbteam'
 });
 
+app.use(express.static(__dirname));
 
 app.use(session({
 	secret: 'secret',
@@ -28,13 +30,17 @@ app.use(session({
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
-app.get('/', function(request, response) {
+app.get('/login', function(request, response) {
   if (request.session.loggedin){
     response.send('You are ' + request.session.username + '<h1>Log out to see this page.</h1>')
   }
   else{
 	  response.sendFile(path.join(__dirname + '/login.html'));
    }
+});
+
+app.get('/', function(request, response) {
+	  response.sendfile(__dirname + '/home.html');
 });
 
 // Authentication username and password
