@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137604632-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-137604632-1');
+		</script>
+		<meta charset="utf-8">
+		<title>Recipeazy</title>
+		<link rel = "icon" href = "https://i.ibb.co/ctVKLPZ/favicon.png" type = "image/x-icon">
+		<!-- <link rel = "icon" href = "https://ibb.co/gwQvPGG" type = "image/x-icon"> -->
+		<style>
+		.imgcontainer {
+		  text-align: center;
+			color: #3498DB;
+		  margin: 24px 0 12px 0;
+		}
+
+		img.avatar {
+		  width: 7%;
+		  border-radius: 50%;
+		}
+
+		img.food_pic{
+		  width: 10%;
+		}
+
+		.login-form {
+			width: 300px;
+			margin: 0 auto;
+			font-family: Tahoma, Geneva, sans-serif;
+		}
+		.login-form h1 {
+			text-align: center;
+			color: #4d4d4d;
+			font-size: 24px;
+			padding: 20px 0 20px 0;
+		}
+		.login-form input[type="password"],
+		.login-form input[type="text"] {
+			width: 100%;
+			padding: 15px;
+			border: 1px solid #dddddd;
+			margin-bottom: 15px;
+			box-sizing:border-box;
+		}
+		.login-form input[type="submit"] {
+			width: 100%;
+			padding: 15px;
+			background-color: #535b63;
+			border: 0;
+			box-sizing: border-box;
+			cursor: pointer;
+			font-weight: bold;
+			color: #ffffff;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="imgcontainer">
+			<h1> Welcome to Recipeazy! </h1>
+    	<img src="https://i.ibb.co/pZsX7rk/logo.png" alt="Avatar" class="avatar">
+			<!-- <img src="https://i.ibb.co/6bGv122/1.png" alt="Avatar" class="avatar"> -->
+  	</div>
+		<div class="login-form">
+			<h1>Login Form</h1>
+			<form action="auth" method="POST">
+				<input type="text" name="username" placeholder="Username" required>
+				<input type="password" name="password" placeholder="Password" required>
+				<input type="submit">
+			</form>
+		</div>
+		<!-- <div class = 'imgcontainer'>
+			<img src = 'https://i.ibb.co/f4N2qwk/6.png' alt = "photo" class = 'food_pic'>
+		</div> -->
+	</body>
+</html>
