@@ -49,12 +49,17 @@ app.post('/auth', function(request, response) {
     	var password = request.body.password;
     	if (username && password) {
     		connection.query('SELECT * FROM users WHERE user_name = ? AND user_password = ?', [username, password], function(error, results, fields) {
-    			if (results.length > 0) {
+          if (results.length > 0) {
     				request.session.loggedin = true;
     				request.session.username = username;
     				response.redirect('/home');
+            // console.log(username);
+            // console.log(password);
     			} else {
     				response.send('Incorrect Username and/or Password!');
+            // response.sendStatus(401);
+            // console.log(username);
+            // console.log(password);
     			}
     			response.end();
     		});
