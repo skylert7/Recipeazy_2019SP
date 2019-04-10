@@ -40,7 +40,7 @@ app.get('/login', function(request, response) {
 });
 
 app.get('/', function(request, response) {
-	  response.sendfile(__dirname + '/home.html');
+	  response.sendFile(__dirname + '/home.html');
 });
 
 // Authentication username and password
@@ -56,6 +56,7 @@ app.post('/auth', function(request, response) {
             // console.log(username);
             // console.log(password);
     			} else {
+            request.session.destroy();
     				response.send('Incorrect Username and/or Password!');
             // response.sendStatus(401);
             // console.log(username);
