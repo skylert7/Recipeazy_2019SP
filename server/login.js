@@ -11,18 +11,14 @@ const port = 3000;
 
 app.use(express.static(__dirname));
 
-//connect to database everytime app gets called so that the connection won't timeout
-app.use(function(request, response, next) {
-    response.locals.connection = mysql.createConnection({
-      host: 'dbinstanceaws.cr1itmhwscoi.us-east-2.rds.amazonaws.com',
-      port: '3306',
-      user: 'dbteam',
-      password: 'dbpassword',
-      database: 'dbteam'
-  });
-  response.locals.connection.connect();
-  next();
+var connection = mysql.createPool({
+    host: 'dbinstanceaws.cr1itmhwscoi.us-east-2.rds.amazonaws.com',
+    port: '3306',
+    user: 'dbteam',
+    password: 'dbpassword',
+    database: 'dbteam'
 });
+
 
 app.use(session({
 	secret: 'secret',
