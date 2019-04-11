@@ -9,22 +9,26 @@ var app = express();
 
 const port = 3000;
 
-
-var connection = mysql.createConnection({
-    host: 'dbinstanceaws.cr1itmhwscoi.us-east-2.rds.amazonaws.com',
-    port: '3306',
-    user: 'dbteam',
-    password: 'dbpassword',
-    database: 'dbteam'
-});
-
 app.use(express.static(__dirname));
+
+//connect to database everytime app gets called so that the connection won't timeout
+app.use(function(request, response, next) {
+    response.locals.connection = mysql.createConnection({
+      host: 'dbinstanceaws.cr1itmhwscoi.us-east-2.rds.amazonaws.com',
+      port: '3306',
+      user: 'dbteam',
+      password: 'dbpassword',
+      database: 'dbteam'
+  });
+  response.locals.connection.connect();
+  next();
+});
 
 app.use(session({
 	secret: 'secret',
 	resave: true,
 	saveUninitialized: true,
-	cookie  : { maxAge  : new Date(Date.now() + 120 * 1000)}
+	cookie  : { maxAge  : 120 * 1000}
 }));
 
 app.use(bodyParser.urlencoded({extended : true}));
