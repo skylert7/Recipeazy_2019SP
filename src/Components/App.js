@@ -21,7 +21,6 @@ class App extends React.Component {
       <div>
         <BrowserRouter>
           <Route path = "/home" exact component={Home}/>
-          <Header/>
           <div>
             <Route path = "/" exact component={StreamList}/>
             <Route path = "/streams/new" exact component={StreamCreate}/>

@@ -1,8 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {BrowserRouter, Route, Link} from 'react-router-dom';
-import Modal from 'react-modal';
-import Popup from "reactjs-popup";
+import {Link} from 'react-router-dom';
+import GoogleAuth from './GoogleAuth';
 
 export default class Header extends React.Component{
   render(){
@@ -15,6 +13,7 @@ export default class Header extends React.Component{
         <Link to = '/' className='item'>
             All_Streams
         </Link>
+        <GoogleAuth/>
       </div>
     </div>
     );

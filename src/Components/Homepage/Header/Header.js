@@ -1,20 +1,23 @@
 // Import ReactDOM and React
 import React from 'react';
-import ReactDOM from 'react-dom';
 import '../../static/layout.css'; // Tell Webpack that .js uses these styles
 
-export default class Footer extends React.Component {
+export default class Header extends React.Component {
+  constructor(props){
+    super(props);
+  }
+
   render() {
     return(
       <div className="wrapper row1">
-        <header id="header" class="clear">
+        <header id="header" className="clear">
         	<h1>Recipeazy</h1>
           <nav>
             <ul>
               <li>Home</li>
               <li>Services</li>
               <li>Recipes</li>
-              <li>Sign In/Sign Up</li>
+              <li>{this.props.children}</li>
             </ul>
           </nav>
         </header>
