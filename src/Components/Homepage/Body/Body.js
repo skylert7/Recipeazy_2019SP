@@ -2,7 +2,7 @@
 import React from 'react';
 import '../../static/layout.css'; // Tell Webpack that .js uses these styles
 
-export default class Footer extends React.Component {
+export default class Body extends React.Component {
   render() {
     return(
       <div className="wrapper row2">

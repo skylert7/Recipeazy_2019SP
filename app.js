@@ -24,8 +24,8 @@ app.use(cookieSession({
   maxAge: 24 * 60 * 60 * 1000 // 24 hours
 }))
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -34,16 +34,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'server')));
 
 //connect to database everytime app gets called so that the connection won't timeout
-app.use(function(request, response, next) {
-    response.locals.connection = mysql.createConnection({
-      host: 'dbinstanceaws.cr1itmhwscoi.us-east-2.rds.amazonaws.com',
-      port: '3306',
-      user: 'dbteam',
-      password: 'dbpassword',
-      database: 'dbteam'
-  });
-  response.locals.connection.connect();
-  next();
+var connection = mysql.createPool({
+    host: 'dbinstanceaws.cr1itmhwscoi.us-east-2.rds.amazonaws.com',
+    port: '3306',
+    user: 'dbteam',
+    password: 'dbpassword',
+    database: 'dbteam'
 });
 
 app.use('/', index);
