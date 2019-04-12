@@ -1,7 +1,6 @@
 // Import ReactDOM and React
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {BrowserRouter, Route, Link} from 'react-router-dom';
+import {BrowserRouter, Route} from 'react-router-dom';
 import Home from './Homepage/Home';
 import LoginPage from './Login/LoginPage';
 // var faker = require('faker');

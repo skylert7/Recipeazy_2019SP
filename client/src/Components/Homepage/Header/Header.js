@@ -2,9 +2,7 @@
 import React from 'react';
 import '../../static/layout.css'; // Tell Webpack that .js uses these styles
 //{this.props.children}
-import Home from '../Home';
-import {BrowserRouter, Route, Link} from 'react-router-dom';
-import LoginPage from '../../Login/LoginPage';
+import {Link} from 'react-router-dom';
 export default class Header extends React.Component {
   constructor(props){
     super(props);
