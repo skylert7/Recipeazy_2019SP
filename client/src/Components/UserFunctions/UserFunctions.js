@@ -2,14 +2,14 @@ import axios from 'axios';
 
 export const register = newUser => {
     return axios
-        .post('users/register', {
+        .post('http://ec2-18-222-255-36.us-east-2.compute.amazonaws.com:4000/users/register', {
             first_name: newUser.first_name,
             last_name: newUser.last_name,
             user_name: newUser.user_name,
             user_password: newUser.user_password
         })
         .then(res => {
-            console.log("Registered")
+            console.log(res)
         })
 }
 

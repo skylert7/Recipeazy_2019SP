@@ -11,6 +11,7 @@ process.env.SECRET_KEY = 'secret'
 
 users.post('/register', (req, res) => {
     const userData = {
+        user_id: req.body.user_id,
         first_name: req.body.first_name,
         last_name: req.body.last_name,
         user_name: req.body.user_name,
@@ -24,8 +25,7 @@ users.post('/register', (req, res) => {
     })
         .then(user => {
             if (!user) {
-                bcrypt.hash(req.body.user_password, 10, (err, hash) => {
-                    userData.user_password = hash
+                    userData.user_password = req.body.user_password
                     User.create(userData)
                         .then(user => {
                             res.json({ status: user.user_name + ' registered' })
@@ -33,8 +33,8 @@ users.post('/register', (req, res) => {
                         .catch(err => {
                             res.send('error: ' + err)
                         })
-                })
-            } else {
+                }
+            else {
                 res.json({ error: "User already exists" })
             }
         })

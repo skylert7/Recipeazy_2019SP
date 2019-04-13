@@ -1,5 +1,5 @@
 import React from "react";
-import './Login.css';
+import '../static/Login.css';
 import { login } from '../UserFunctions/UserFunctions'
 import {Link} from 'react-router-dom';
 export default class LoginPage extends React.Component {
@@ -77,7 +77,7 @@ export default class LoginPage extends React.Component {
                 <div caselass="ui error message"></div>
               </form>
               <div className="ui message">
-                New to us? <Link to="#">Sign Up</Link>
+                New to us? <Link to="/register">Sign Up</Link>
               </div>
             </div>
           </div>

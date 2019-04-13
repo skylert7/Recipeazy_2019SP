@@ -1,5 +1,5 @@
 import React from "react";
-import './LoginTrue.css';
+import '../static/Login.css';
 
 export default class True extends React.Component {
   constructor(props) {
@@ -8,17 +8,13 @@ export default class True extends React.Component {
 
   render() {
     return (
-      <div className ='my_wrapper'>
-        <div className = 'f1_center'>
-          <div className="ui middle aligned center aligned grid">
-            <div className="column">
-              <h2 className="ui teal image header">
-                <div className="content">
-                If you can see this, you are logged in!
-                </div>
-              </h2>
+      <div className="ui middle aligned center aligned grid">
+        <div className="column">
+          <h2 className="ui teal image header">
+            <div className="content">
+              If you can see this, you are logged in!
             </div>
-          </div>
+          </h2>
         </div>
       </div>
     );
