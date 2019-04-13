@@ -30,7 +30,7 @@ export default class LoginPage extends React.Component {
     login(user).then(res => {
         if (res) {
             console.log(this.state.user_name)
-            this.props.history.push(`/`)
+            this.props.history.push(`/loginTrue`)
         }
     })
   }

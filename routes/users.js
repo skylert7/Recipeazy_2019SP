@@ -2,6 +2,7 @@ const express = require("express")
 const users = express.Router()
 const cors = require('cors')
 const jwt = require("jsonwebtoken")
+var app = express();
 
 const User = require("../UserProfile")
 users.use(cors())

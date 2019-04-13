@@ -8,8 +8,8 @@ export default class Body extends React.Component {
       <div className="wrapper row2">
         <div id="container" className="clear">
           <section id="slider">
-        		<s1>Welcome to Recipeazy!</s1>
-        		<s2>At Receipeazy, we will help you be the best version of you in the kitchen.</s2>
+        		<h5>Welcome to Recipeazy!</h5>
+        		<h6>At Receipeazy, we will help you be the best version of you in the kitchen.</h6>
       	  </section>
           <div id="homepage">
             <section id="services" className="clear">
