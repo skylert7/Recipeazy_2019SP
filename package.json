@@ -1,10 +1,10 @@
 {
   "name": "recipe",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is Readme. This repo is for Database concept project.\r run 'npm install' and 'npm start' to see result.\r 1067077420380-sadl3tb5rkl7o9u706t2c16e047cmijd.apps.googleusercontent.com",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app.js"
+    "start": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,10 +13,21 @@
     "body-parser": "^1.17.2",
     "cors": "^2.8.4",
     "express": "^4.16.3",
+    "express-session": "^1.16.1",
     "mysql": "^2.14.1",
     "mysql2": "^1.6.1",
     "nodemon": "^1.18.3",
     "react-router-dom": "^4.3.1",
     "sequelize": "^4.38.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skylert7/Recipeazy_2019SP.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/skylert7/Recipeazy_2019SP/issues"
+  },
+  "homepage": "https://github.com/skylert7/Recipeazy_2019SP#readme"
 }

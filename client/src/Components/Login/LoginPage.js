@@ -1,6 +1,6 @@
 import React from "react";
 import './Login.css';
-import { login } from './UserFunctions'
+import { login } from '../UserFunctions/UserFunctions'
 import {Link} from 'react-router-dom';
 export default class LoginPage extends React.Component {
   constructor(props) {
@@ -8,7 +8,7 @@ export default class LoginPage extends React.Component {
 
     this.state = {
       user_name: "",
-      password: ""
+      user_password: ""
     }
 
     this.onChange = this.onChange.bind(this)
@@ -22,15 +22,15 @@ export default class LoginPage extends React.Component {
 
   onSubmit (e) {
     e.preventDefault()
-
     const user = {
         user_name: this.state.user_name,
-        password: this.state.password
+        user_password: this.state.user_password
     }
 
     login(user).then(res => {
         if (res) {
-            this.props.history.push(`/profile`)
+            console.log(this.state.user_name)
+            this.props.history.push(`/`)
         }
     })
   }
@@ -46,13 +46,13 @@ export default class LoginPage extends React.Component {
                   Log-in to your account
                 </div>
               </h2>
-              <form noValidate onSubmit={this.onSubmit} className="ui large form">
+              <form onSubmit={this.onSubmit} className="ui large form">
                 <div className="ui stacked segment">
                   <div className="field">
                     <div className="ui left icon input">
                       <i className="user icon"></i>
                       <input
-                        type="text"
+                        type="user_name"
                         name="user_name"
                         placeholder="Username"
                         value={this.state.user_name}
@@ -65,14 +65,14 @@ export default class LoginPage extends React.Component {
                       <i className="lock icon"></i>
                       <input
                         type="password"
-                        name="password"
+                        name="user_password"
                         placeholder="Password"
-                        value={this.state.password}
+                        value={this.state.user_password}
                         onChange={this.onChange}
                       />
                     </div>
                   </div>
-                  <div type = 'submit' className="ui fluid large teal submit button">Login</div>
+                  <button type = "submit" className="ui fluid large teal submit button">Login</button>
                 </div>
                 <div caselass="ui error message"></div>
               </form>

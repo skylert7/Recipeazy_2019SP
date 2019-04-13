@@ -6,7 +6,7 @@ export const register = newUser => {
             first_name: newUser.first_name,
             last_name: newUser.last_name,
             user_name: newUser.user_name,
-            password: newUser.password
+            user_password: newUser.user_password
         })
         .then(res => {
             console.log("Registered")
@@ -15,9 +15,9 @@ export const register = newUser => {
 
 export const login = user => {
     return axios
-        .post('users/login', {
+        .post('http://localhost:4000/users/login', {
             user_name: user.user_name,
-            password: user.password
+            user_password: user.user_password
         })
         .then(res => {
             localStorage.setItem('usertoken', res.data)

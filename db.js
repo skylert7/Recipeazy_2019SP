@@ -1,15 +1,13 @@
 const Sequelize = require("sequelize")
-
 const db = {}
-
-//connect to database everytime app gets called so that the connection won't timeout
 const sequelize = new Sequelize("dbteam", "dbteam", "dbpassword", {
     host: 'dbinstanceaws.cr1itmhwscoi.us-east-2.rds.amazonaws.com',
+    port: '3306',
     dialect: 'mysql',
-    port: 3306,
+    operatorsAliases: false,
 
     pool: {
-        max: 100,
+        max: 150,
         min: 0,
         acquire: 30000,
         idle: 10000

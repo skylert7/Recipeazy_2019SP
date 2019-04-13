@@ -1,13 +1,12 @@
 var express = require('express');
 var path = require('path');
+var cors = require("cors")
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var Users = require('./routes/users')
 var app = express();
-var router = express.Router();
 
-
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
 app.use(session({
 	secret: 'secret',
@@ -18,9 +17,8 @@ app.use(session({
 
 
 app.use(bodyParser.json());
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
-
-app.use(express.static(path.join(__dirname, 'server')));
 
 app.use('/users', Users)
 

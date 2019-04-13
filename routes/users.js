@@ -9,13 +9,11 @@ users.use(cors())
 process.env.SECRET_KEY = 'secret'
 
 users.post('/register', (req, res) => {
-    const today = new Date()
     const userData = {
         first_name: req.body.first_name,
         last_name: req.body.last_name,
         user_name: req.body.user_name,
-        password: req.body.password,
-        created: today
+        user_password: req.body.user_password
     }
 
     User.findOne({
@@ -25,8 +23,8 @@ users.post('/register', (req, res) => {
     })
         .then(user => {
             if (!user) {
-                bcrypt.hash(req.body.password, 10, (err, hash) => {
-                    userData.password = hash
+                bcrypt.hash(req.body.user_password, 10, (err, hash) => {
+                    userData.user_password = hash
                     User.create(userData)
                         .then(user => {
                             res.json({ status: user.user_name + ' registered' })
@@ -52,7 +50,7 @@ users.post('/login', (req, res) => {
     })
         .then(user => {
             if (user) {
-                if (req.body.password === user.password) {
+                if (req.body.user_password === user.user_password) {
                     let token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
                         expiresIn: 1440
                     })
