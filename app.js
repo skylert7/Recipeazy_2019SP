@@ -8,14 +8,6 @@ var app = express();
 
 const port = process.env.PORT || 4000;
 
-app.use(session({
-	secret: 'secret',
-	resave: true,
-	saveUninitialized: true,
-	cookie  : { maxAge  : 120 * 1000} //2 minutes
-}));
-
-
 app.use(bodyParser.json());
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
