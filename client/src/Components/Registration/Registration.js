@@ -6,7 +6,7 @@ export default class Register extends React.Component {
     constructor() {
         super()
         this.state = {
-            /*user_id: random.int(1000, 100000),*/
+            user_id: random.int(1000, 100000),
             first_name: '',
             last_name: '',
             user_name: '',
