@@ -25,9 +25,10 @@ connection.connect(function(err) {
         return;
     }
     else{
-      console.log("Connect successfully!")
+      console.log("Connect successfully!");
+      return;
     }
-}
+})
 //
 // app.use(session({
 // 	secret: 'secret',
