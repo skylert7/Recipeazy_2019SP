@@ -11,13 +11,22 @@ const port = 3000;
 
 app.use(express.static(__dirname));
 
-var connection = mysql.createPool({
+// var connection = mysql.createPool({
+//     host: '76.183.149.75',
+//     port: '3306',
+//     user: 'skyler',
+//     password: 'test',
+//     database: 'classicmodels'
+// });
+
+var connection = mysql.createConnection({
     host: '76.183.149.75',
     port: '3306',
     user: 'skyler',
     password: 'test',
     database: 'classicmodels'
 });
+
 
 connection.connect(function(err) {
     if (err) {
