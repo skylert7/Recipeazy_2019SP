@@ -20,7 +20,7 @@ app.use(express.static(__dirname));
 // });
 
 var connection = mysql.createConnection({
-    host: '76.183.149.75',
+    host: '10.8.129.24',
     port: '3306',
     user: 'skyler',
     password: 'test',
