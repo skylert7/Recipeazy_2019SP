@@ -19,8 +19,14 @@ var connection = mysql.createPool({
     database: 'classicmodels'
 });
 
-if (connection){
-  console.log(Connected!);
+connection.connect(function(err) {
+    if (err) {
+        console.error('Error connecting: ' + err.stack);
+        return;
+    }
+    else{
+      console.log("Connect successfully!")
+    }
 }
 //
 // app.use(session({
