@@ -21,8 +21,8 @@ export const login = user => {
             user_password: user.user_password
         })
         .then(res => {
-            console.log(res);
             localStorage.setItem('userToken', res.data)
+            return res.data
         })
         .catch(err => {
           if(err.response.status === 400){
