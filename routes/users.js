@@ -2,10 +2,9 @@ const express = require("express")
 const users = express.Router()
 const cors = require('cors')
 const jwt = require("jsonwebtoken")
-const withAuth = require('../MiddleMan');
-const User = require("../UserProfile")
-
 var app = express();
+
+const User = require("../UserProfile")
 users.use(cors())
 
 process.env.SECRET_KEY = 'secret'
@@ -53,11 +52,10 @@ users.post('/login', (req, res) => {
         .then(user => {
             if (user) {
                 if (req.body.user_password === user.user_password) {
-                    let token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
-                        expiresIn: 1440
+                    const token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
+                        expiresIn: '1h'
                     })
-                    res.cookie('token', token, { httpOnly: true })
-                    .sendStatus(200);
+                    res.cookie('token', token).sendStatus(200);
                 }
             } else {
                 res.status(400).json({ error: 'User does not exist' })
@@ -67,13 +65,5 @@ users.post('/login', (req, res) => {
             res.status(400).json({ error: err })
         })
 })
-
-users.get('/secret', withAuth, (req, res) => {
-  res.send('The password is a-panda-on-the-horse');
-})
-
-app.get('/checkToken', withAuth, function(req, res) {
-  res.sendStatus(200);
-}
 
 module.exports = users

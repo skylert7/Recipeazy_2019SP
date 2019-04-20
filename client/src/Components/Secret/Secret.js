@@ -1,6 +1,6 @@
 // Import ReactDOM and React
 import React from 'react';
-import '../../static/layout.css'; // Tell Webpack that .js uses these styles
+import '../static/layout.css'; // Tell Webpack that .js uses these styles
 
 export default class Secret extends React.Component {
   render() {

@@ -1,28 +1,11 @@
-const Sequelize = require("sequelize")
-const db = require("./db")
+var jwtDecode = require('jwt-decode');
+const jwt = require("jsonwebtoken")
 
-module.exports = db.sequelize.define(
-    'users',
-    {
-        user_id: {
-            type: Sequelize.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
-        },
-        first_name: {
-            type: Sequelize.STRING
-        },
-        last_name: {
-            type: Sequelize.STRING
-        },
-        user_name: {
-            type: Sequelize.STRING
-        },
-        user_password: {
-            type: Sequelize.STRING
-        }
-    },
-    {
-        timestamps: false
-    }
-)
+var to_encode = { authenticated: true, iat: 1555738934 }
+token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoZW50aWNhdGVkIjpmYWxzZSwiaWF0IjoxNTU1NzQwMzExfQ.0to90VG98z3fdcTXNh8iThH1s_KtO0wmqwM8_rcTqHc'
+var decoded = jwtDecode(token);
+console.log(decoded);
+to_encode = jwt.sign({authenticated: true, iat: 1555740311}, 'admin')
+console.log(to_encode)
+decoded = jwtDecode(token);
+console.log(decoded);

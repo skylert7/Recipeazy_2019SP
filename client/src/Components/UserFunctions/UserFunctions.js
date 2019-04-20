@@ -16,15 +16,19 @@ export const register = newUser => {
 
 export const login = user => {
     return axios
-        .post('http://ec2-18-222-255-36.us-east-2.compute.amazonaws.com:4000/users/login', {
+        .post('http://localhost:4000/users/login', {
             user_name: user.user_name,
             user_password: user.user_password
         })
         .then(res => {
-            localStorage.setItem('usertoken', res.data)
-            return res.data
+            console.log(res);
+            localStorage.setItem('userToken', res.data)
         })
         .catch(err => {
+          if(err.response.status === 400){
+            console.log('User or Password is not valid.')
+          } else {
             console.log(err)
+          }
         })
 }

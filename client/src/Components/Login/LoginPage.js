@@ -27,12 +27,30 @@ export default class LoginPage extends React.Component {
         user_password: this.state.user_password
     }
 
-    login(user).then(res => {
+    // fetch('http://localhost:4000/users/login', {
+    //   credentials: 'same-origin',
+    //   method: 'POST',
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify(user)
+    // })
+    // .then(res => {
+    //   if (res) {
+    //       this.props.history.push(`/loginTrue`)
+    //     }
+    // })
+
+   login(user).then(res => {
         if (res) {
-            console.log(this.state.user_name)
             this.props.history.push(`/loginTrue`)
-        }
+          }
     })
+    .catch(err => {
+      console.error(err);
+      alert('Error logging in please try again');
+    });
   }
 
   render() {
