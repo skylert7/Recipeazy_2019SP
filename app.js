@@ -98,6 +98,18 @@ app.get('/users/logout', function (req, res) {
 });
 
 
+app.get('/users/info', function(req, res) {
+	if (!req.session.loggedin){
+		res.status(404).send("You are not authorized in here.");
+	}
+	else{
+				console.log("User ID is ", req.session.user_id);
+				connection.query('SELECT * FROM users WHERE users.user_id = ?',
+												[req.session.user_id], function(error, results, fields) {
+									res.status(200).send(results);//This is an object
+						});
+		}
+})
 //------------------------------------------------------------------------ User Favorite ------------------------------------------------------------------------
 //Response sends back an array of recipe_ID in favorites
 //Account favorite recipes
