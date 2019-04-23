@@ -19,6 +19,7 @@
     "mysql": "^2.14.1",
     "mysql2": "^1.6.1",
     "nodemon": "^1.18.3",
+    "random": "^2.1.1",
     "react-router-dom": "^4.3.1",
     "sequelize": "^4.38.0"
   },

@@ -295,7 +295,7 @@ app.post('/users/cookware/add', (req, res) => {
 						var cookware_exist = false;
 
 						//Check for cookware existence in table
-						connection.query('SELECT * FROM cookware LIMIT 1', function(error, results, fields) => {
+						connection.query('SELECT * FROM cookware LIMIT 1', function(error, results, fields) {
 										if (error) { throw error }
 										else{
 											if(results.length > 0){ cookware_exist = true }
@@ -312,7 +312,7 @@ app.post('/users/cookware/add', (req, res) => {
 															req.body.cookware_name]
 
 						connection.query('INSERT INTO cookware (user_id, cookware_id, cookware_name) VALUES (?, ?, ?)',
-														cookware_insert, function(error, results, fields) => {
+														cookware_insert, function(error, results, fields) {
 															if (error) { throw error }
 															else{
 																res.status(200).send('Add Success')//Add Success
